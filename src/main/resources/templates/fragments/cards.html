@@ -1,0 +1,43 @@
+<div class="border rounded-4 border-secondary shadow-0 m-1"
+     xmlns:th="http://www.thymeleaf.org"
+     th:fragment="card-readonly(name,thumbnail,gender,uuid,title,categoriesList)"
+>
+  <div class="card m-auto" style="width: 25rem;">
+      <img th:src="${thumbnail}" class="card-img-top rounded-4" alt="...">
+      <div class="card-body">
+        <div >
+            <div  class="pe-5">
+                <img th:src="@{/resources/img/profile/1.jpg}" class="rounded-circle profile float-start" alt="">
+            </div>
+            <div>
+                <span class="card-title pt-5" th:text="${name}"></span>
+                <div>
+                    <p class="fw-lighter">
+                        @<span class="card-title " th:text="${name}"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <br>
+            <button class="BT-categories" th:each="categorie : ${categoriesList}" th:text="${categorie}"></button>
+          <div class="card-text " th:text="${title}"> </div>
+          <a href="#" class="btn btn-primary" >comment</a>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="card"
+     th:fragment="card-user">
+    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+        <img src="https://i.pinimg.com/736x/18/e5/e0/18e5e0c223895c0a8378acc57f22cb39.jpg" class="img-fluid"/>
+        <a href="/profile">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+        </a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#!" class="btn btn-primary">View Profile</a>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <div th:replace="~{fragments/link/styles}"></div>
+    <title>Title</title>
+</head>
+<body>
+    <!--Start ~ Header-->
+    <div th:replace="~{fragments/navbar}"></div>
+    <!--End ~ Header-->
+
+    <!--start ~main-->
+    <div th:replace="~{fragments/profile/profile_detail}"></div>
+    <!--end ~main-->
+    <!--Start ~ Footer-->
+    <div th:replace="~{fragments/footer}"></div>
+    <!--End ~ Footer-->
+</body>
+<div th:replace="~{fragments/link/js}"></div>
+</html>
