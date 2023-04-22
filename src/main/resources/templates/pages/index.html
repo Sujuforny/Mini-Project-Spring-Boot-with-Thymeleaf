@@ -13,11 +13,11 @@
 
     <!--Start ~ Main-->
     <main class="container">
-        <div th:replace="~{fragments/home/categories}"></div>
+        <div th:replace="~{fragments/home/categories(*{categories})}"></div>
         <div class="pt-5 float-start"
              th:each="article : ${articles}" th:object="${article}"
         >
-            <div th:replace="~{fragments/cards:: card-readonly(*{name},*{thumbnail},*{gender},*{uuid},*{title},*{categoriesList})}"></div>
+            <div th:replace="~{fragments/cards:: card-readonly(*{user},*{thumbnail} ,*{uuid},*{title},*{categories})}"></div>
         </div>
     </main>
     <a href="/article/new">

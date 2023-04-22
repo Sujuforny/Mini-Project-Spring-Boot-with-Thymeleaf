@@ -18,49 +18,25 @@
 <br>
   <div class="container">
     <h1>Create new article</h1>
-    <form th:action="@{/article/new}"  method="post" th:object="${article}" enctype="multipart/form-data">
+    <form th:action="@{/article/new}"  method="post" th:object="${articles}" enctype="multipart/form-data">
       <div class="row">
         <div class="col-6">
-            <div class="mb-3">
-                <label class="form-label" for="author">Author</label>
-                <input th:field="*{name}" class="form-control" id="author" type="text">
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+            <div class="form-check form-check-inline" th:each="use :${userList}" >
+                <input class="form-check-input" type="checkbox" th:id="${use.userName}" th:value="${use.userName}" th:field="*{user}"> <!-- Bind categories field to selected checkboxes -->
+                <label class="form-check-label" th:for="${use.userName}" th:text="${use.userName}"></label>
             </div>
           <div class="mb-3">
             <label class="form-label" for="title">Title</label>
             <input th:field="*{title}"  class="form-control" id="title" type="text">
               <div class="form-text text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
           </div>
-          <div>
-              <p>Categories</p>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                <label class="form-check-label" for="inlineCheckbox1">Gamming</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                <label class="form-check-label" for="inlineCheckbox2">Stories</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                <label class="form-check-label" for="inlineCheckbox3">Student</label>
-              </div>
-
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
-                <label class="form-check-label" for="inlineCheckbox4">Programming</label>
-              </div>
-
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
-                <label class="form-check-label" for="inlineCheckbox5">Science</label>
-              </div>
-
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option6">
-                <label class="form-check-label" for="inlineCheckbox6">Other</label>
-              </div>
-          </div>
+            <div>
+                <p>Categories</p>
+                <div class="form-check form-check-inline" th:each="cat :${categoriess}" >
+                    <input class="form-check-input" type="checkbox" th:id="${cat.cat}" th:value="${cat.cat}" th:field="*{categories}"> <!-- Bind categories field to selected checkboxes -->
+                    <label class="form-check-label" th:for="${cat.cat}" th:text="${cat.cat}"></label>
+                </div>
+            </div>
           <button class="btn btn-primary" type="submit">Save</button>
         </div>
         <div class="col-6">

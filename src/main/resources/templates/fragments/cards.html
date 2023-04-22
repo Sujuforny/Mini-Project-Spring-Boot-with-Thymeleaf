@@ -1,6 +1,7 @@
 <div class="border rounded-4 border-secondary shadow-0 m-1"
      xmlns:th="http://www.thymeleaf.org"
-     th:fragment="card-readonly(name,thumbnail,gender,uuid,title,categoriesList)"
+     th:fragment="card-readonly(user,thumbnail,uuid,title,categories)"
+     th:each="use :${user}"
 >
   <div class="card m-auto" style="width: 25rem;">
       <img th:src="${thumbnail}" class="card-img-top rounded-4" alt="...">
@@ -10,17 +11,17 @@
                 <img th:src="@{/resources/img/profile/1.jpg}" class="rounded-circle profile float-start" alt="">
             </div>
             <div>
-                <span class="card-title pt-5" th:text="${name}"></span>
+                <span class="card-title pt-5" th:text="${use.userName}"></span>
                 <div>
                     <p class="fw-lighter">
-                        @<span class="card-title " th:text="${name}"></span>
+                        @<span class="card-title " th:text="${use.userName}"></span>
                     </p>
                 </div>
             </div>
         </div>
         <div>
             <br>
-            <button class="BT-categories" th:each="categorie : ${categoriesList}" th:text="${categorie}"></button>
+                <button class="BT-categories" th:each="cat : ${categories}" th:object="${cat}" th:text="${cat.cat}"></button>
           <div class="card-text " th:text="${title}"> </div>
           <a href="#" class="btn btn-primary" >comment</a>
         </div>
