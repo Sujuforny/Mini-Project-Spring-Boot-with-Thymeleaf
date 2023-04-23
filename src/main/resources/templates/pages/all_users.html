@@ -13,8 +13,11 @@
 
     <!--start ~main-->
     <main class="container pt-5">
-        <h1>All-Users:</h1>
-        <div th:replace="~{fragments/cards :: card-user}"></div>
+        <h1 th:each="user :${userList}"></h1>
+        <h1 th:text="'All-Users: ' + ${#lists.size(userList)}"></h1>
+        <div th:replace="~{fragments/cards :: card-user(*{userList})}"
+        >
+        </div>
     </main>
     <!--end ~main-->
     <!--Start ~ Footer-->

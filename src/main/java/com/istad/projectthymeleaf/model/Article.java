@@ -11,13 +11,13 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Article {
-//    @NotNull(message = "Name is required..!")
+    @NotNull(message = "Name is required..!")
     private User user;
     private String thumbnail;
     private UUID uuid;
     @NotBlank(message = "Title is required..!")
     private String title;
-    @NotEmpty
+    @NotEmpty(message = "Categories is required..!")
     private List<Categories> categoriesList;
 //    @NotEmpty(message = "Name is required..!")
 //    private List<User> user;

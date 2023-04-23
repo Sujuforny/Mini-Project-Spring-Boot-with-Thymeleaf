@@ -5,6 +5,7 @@ import com.istad.projectthymeleaf.model.Categories;
 import com.istad.projectthymeleaf.model.User;
 import com.istad.projectthymeleaf.service.ArticleService;
 import com.istad.projectthymeleaf.service.CategoriesService;
+import com.istad.projectthymeleaf.service.FileUploadService;
 import com.istad.projectthymeleaf.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -44,7 +47,9 @@ public class HomeController {
         return "pages/new_article";
     }
     @PostMapping("/article/new")
-    String doSavePost(@ModelAttribute @Valid Article article,BindingResult result ,Model model){
+    String doSavePost(@ModelAttribute @Valid Article article, BindingResult result ,
+                      @RequestParam("thumbnailFile") MultipartFile file,
+                      Model model){
         List<Categories> categoriesList = categoriesService.findAll();
         List<User> userList = userService.findAlls();
         model.addAttribute("categoriesList",categoriesList);
@@ -54,7 +59,17 @@ public class HomeController {
             System.out.println(article);
             return "pages/new_article";
         }
-        System.out.println(article);
-        return "redirect:/article/new";
+        System.out.println("true...!");
+        for ( User user: userList) {
+            if(article.getUser().getUserName().equals(user.getUserName())) {
+                article.setUser(user);
+            }
+        }
+
+        boolean isSucceed = articleService.save(article ,file);
+        if (isSucceed){
+            return "redirect:/article/new";
+        }
+        return "pages/new_article";
     }
 }

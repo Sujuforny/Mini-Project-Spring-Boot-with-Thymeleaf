@@ -38,11 +38,11 @@ public class StaticRepository {
 
         userList = new ArrayList<>();
                               //userName profileImg                    gender description                                                                                         email             ;address                                     ;cover;
-        userList.add(new User("fufy","@{/resources/img/profile/1.jpg}","male","Select fields components are used for collecting user provided information from a list of options.","fufy@gmail.com","RUPP Auditorium, មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
-        userList.add(new User("lufy","@{/resources/img/profile/1.jpg}","male","Select fields components are used for collecting user provided information from a list of options.","fufy@gmail.com","RUPP Auditorium, មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
-        userList.add(new User("kiki","@{/resources/img/profile/1.jpg}","male","Select fields components are used for collecting user provided information from a list of options.","fufy@gmail.com","RUPP Auditorium, មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
-        userList.add(new User("jonhson","@{/resources/img/profile/1.jpg}","male","Select fields components are used for collecting user provided information from a list of options.","fufy@gmail.com","RUPP Auditorium, មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
-        userList.add(new User("lala128","@{/resources/img/profile/1.jpg}","male","Select fields components are used for collecting user provided information from a list of options.","fufy@gmail.com","RUPP Auditorium, មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
+        userList.add(new User("fufy","1.jpg","male","Select fields components are used for collecting user provided information from a list of options.","fufy@gmail.com","RUPP Auditorium, មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
+        userList.add(new User("lufy","2.jpg","male","Love is a complex and multifaceted emotion that humans experience towards others or even towards oneself","fufy@gmail.com","RUPP Auditorium, មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
+        userList.add(new User("kiki","3.jpg","male"," It is generally characterized by affection, care, compassion, attachment, and deep emotional connection.","fufy@gmail.com","RUPP Auditorium, មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
+        userList.add(new User("jonhson","4.jpg","male","Love can manifest in various forms, such as romantic love, familial love, platonic love, and self-love","fufy@gmail.com","RUPP Auditorium, មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
+        userList.add(new User("lala128","5.jpg","male","Romantic love typically involves feelings of passion, intimacy, and commitment towards a romantic partner","fufy@gmail.com","RUPP Auditorium, មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
 
         categoriesList = new ArrayList<>();
         categoriesList.add(new Categories("Gamming"));
@@ -52,10 +52,9 @@ public class StaticRepository {
         categoriesList.add(new Categories("Science"));
         categoriesList.add(new Categories("Other"));
         articles= new ArrayList<>(){{
-            add(new Article(user,"https://i.pinimg.com/564x/c4/9d/51/c49d51ff81e8d1a3e2c72796c6d6a359.jpg",UUID.randomUUID(),"hese breakthroughs are propelling us towards a new era of innovation and discovery.",categoriesList));
-            add(new Article(user,"https://i.pinimg.com/564x/c4/9d/51/c49d51ff81e8d1a3e2c72796c6d6a359.jpg",UUID.randomUUID(),"Get ready to embark on a journey of technological marvels",categoriesList));
-            add(new Article(user,"https://i.pinimg.com/564x/63/a4/a1/63a4a1d6ad3d616e18a1ec9690fe4a35.jpg",UUID.randomUUID(),"Cutting-Edge Breakthroughs in Science and TechnologyT",categoriesList));
-            add(new Article(user,"https://i.pinimg.com/564x/ab/a1/8c/aba18ca1848b036a0dcfc871d46d3e6a.jpg",UUID.randomUUID(),"Trailblazing Advances in Science, Technology, and Beyond",categoriesList));
+            add(new Article(user,"1.jpg",UUID.randomUUID(),"hese breakthroughs are propelling us towards a new era of innovation and discovery.",categoriesList));
+            add(new Article(user,"2.jpg",UUID.randomUUID(),"Get ready to embark on a journey of technological marvels",categoriesList));
+            add(new Article(user,"3.jpg",UUID.randomUUID(),"Cutting-Edge Breakthroughs in Science and TechnologyT",categoriesList));
         }};
     }
 //    @PostConstruct
