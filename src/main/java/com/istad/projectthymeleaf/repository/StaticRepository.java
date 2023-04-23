@@ -39,10 +39,10 @@ public class StaticRepository {
         userList = new ArrayList<>();
                               //userName profileImg                    gender description                                                                                         email             ;address                                     ;cover;
         userList.add(new User("fufy","1.jpg","male","Select fields components are used for collecting user provided information from a list of options.","fufy@gmail.com","RUPP Auditorium, មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
-        userList.add(new User("lufy","2.jpg","male","Love is a complex and multifaceted emotion that humans experience towards others or even towards oneself","fufy@gmail.com","RUPP Auditorium, មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
-        userList.add(new User("kiki","3.jpg","male"," It is generally characterized by affection, care, compassion, attachment, and deep emotional connection.","fufy@gmail.com","RUPP Auditorium, មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
-        userList.add(new User("jonhson","4.jpg","male","Love can manifest in various forms, such as romantic love, familial love, platonic love, and self-love","fufy@gmail.com","RUPP Auditorium, មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
-        userList.add(new User("lala128","5.jpg","male","Romantic love typically involves feelings of passion, intimacy, and commitment towards a romantic partner","fufy@gmail.com","RUPP Auditorium, មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
+        userList.add(new User("lufy","2.jpg","male","Love is a complex and multifaceted emotion that humans experience towards others or even towards oneself","fufy@gmail.com","Phnom Penh Hanoi Frienship Blvd. (1019 រាជធានី 200Bភ្នំពេញ, 12345","@{/resources/img/profile/1.jpg}"));
+        userList.add(new User("kiki","3.jpg","male"," It is generally characterized by affection, care, compassion, attachment, and deep emotional connection.","fufy@gmail.com","HWR6+WF2, 395 ផ្លូវលេខ ៩០៧, ភ្នំពេញ 12000","@{/resources/img/profile/1.jpg}"));
+        userList.add(new User("jonhson","4.jpg","male","Love can manifest in various forms, such as romantic love, familial love, platonic love, and self-love","fufy@gmail.com","មហាវិថី មិត្តភាព ភ្នំពេញ ហាណូយ (១០១៩), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
+        userList.add(new User("lala128","5.jpg","male","Romantic love typically involves feelings of passion, intimacy, and commitment towards a romantic partner","fufy@gmail.com","142 Street 58AK, Phnom Penh Hanoi Friendship Blvd (1019), Phnom Penh","@{/resources/img/profile/1.jpg}"));
 
         categoriesList = new ArrayList<>();
         categoriesList.add(new Categories("Gamming"));

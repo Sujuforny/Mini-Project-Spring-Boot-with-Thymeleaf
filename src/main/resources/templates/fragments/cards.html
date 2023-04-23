@@ -40,7 +40,7 @@
     <div class="card-body">
         <h5 class="card-title" th:text="${user.userName}"> </h5>
         <p class="card-text" th:text="${user.description}"></p>
-        <a href="/profile" class="btn btn-primary">View Profile</a>
+        <a th:href="@{/profile/user(userName=${user.userName})}" lass="btn btn-primary">View Profile</a>
     </div>
 </div>
 
