@@ -14,6 +14,6 @@ public class CategoriesServiceImpl implements CategoriesService {
 
     @Override
     public List<Categories> findAll() {
-        return staticRepository.getCat();
+        return staticRepository.getCategoriesList();
     }
 }

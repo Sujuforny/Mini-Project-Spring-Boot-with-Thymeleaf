@@ -26,36 +26,33 @@ public class HomeController {
     @GetMapping("/")
     String viewHome (Model model){
         //System.out.println(articleService.findAll());//sout merl tha yg ttul ban list l'bos articleService ot
-        List<User> userList = userService.findAll();
-        List<Categories> categories =categoriesService.findAll();
         List<Article> articles = articleService.findAll();//yg oy list bos articleService oy tv articles
-
-        model.addAttribute("categories",categories);
-
+        List<Categories> categoriesList = categoriesService.findAll();
+        User user = userService.findAll();
+        model.addAttribute("articles",articles);
+        model.addAttribute("categoriesList",categoriesList);
+        model.addAttribute("user",user);
         return "pages/index";
     }
     @GetMapping("/article/new")
-    String newArticle(Model model, Article article , Categories categories){
-        List<Categories> categoriess = categoriesService.findAll();
-        List<User> userList = userService.findAll();
-
-        model.addAttribute("categoriess",categoriess);
-
+    String newArticle( Model model, Article article){
+        List<Categories> categoriesList = categoriesService.findAll();
+        List<User> userList = userService.findAlls();
+        model.addAttribute("categoriesList",categoriesList);
+        model.addAttribute("article",article);
+        model.addAttribute("userList", userList);
         return "pages/new_article";
     }
     @PostMapping("/article/new")
-    String doSavePost(@ModelAttribute @Valid Article article, BindingResult result ,Model model,Categories categories){
-        List<Categories> categoriess = categoriesService.findAll();
-        List<Article> articles = articleService.findAll();
-        List<User> userList = userService.findAll();
+    String doSavePost(@ModelAttribute @Valid Article article,BindingResult result ,Model model){
+        List<Categories> categoriesList = categoriesService.findAll();
+        List<User> userList = userService.findAlls();
+        model.addAttribute("categoriesList",categoriesList);
+        model.addAttribute("userList", userList);
         if (result.hasErrors()){
-
-            model.addAttribute("categoriess",categoriess);
-
-
-
-
-           return "pages/new_article";
+            model.addAttribute("article",article);
+            System.out.println(article);
+            return "pages/new_article";
         }
         System.out.println(article);
         return "redirect:/article/new";

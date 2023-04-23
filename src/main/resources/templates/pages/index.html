@@ -7,26 +7,81 @@
     <title>Title</title>
 </head>
 <body>
-    <!--Start ~ Header-->
-    <div th:replace="~{fragments/navbar}"></div>
-    <!--End ~ Header-->
+<!--Start ~ Header-->
+<div th:replace="~{fragments/navbar}"></div>
+<!--End ~ Header-->
 
-    <!--Start ~ Main-->
-    <main class="container">
-        <div th:replace="~{fragments/home/categories(*{categories})}"></div>
-        <div class="pt-5 float-start"
-             th:each="article : ${articles}" th:object="${article}"
-        >
-            <div th:replace="~{fragments/cards:: card-readonly(*{user},*{thumbnail} ,*{uuid},*{title},*{categories})}"></div>
-        </div>
-    </main>
-    <a href="/article/new">
-        <button class="btn-add-article position-fixed fixed-bottom  rounded-5 float-end">
+<!--Start ~ Main-->
+<main class="container">
+    <div th:replace="~{fragments/home/categories:: btn-categories(*{categoriesList})}"></div>
+    <div class="pt-5 float-start"
+         th:each="article : ${articles}" th:object="${article}"
+    >
+        <div th:replace="~{fragments/cards:: card-readonly(*{user},*{thumbnail},*{uuid},*{title},*{categoriesList})}"></div>
+    </div>
+</main>
+<a href="/article/new">
+    <button class="btn-add-article position-fixed fixed-bottom  rounded-5 float-end">
           <span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path></svg> New Article
           </span>
-        </button>
-    </a>
-  </body>
-  <div th:replace="~{fragments/link/js}"></div>
-  </html>
+    </button>
+</a>
+</body>
+<div th:replace="~{fragments/link/js}"></div>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en"-->
+<!--      xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <div th:replace="~{fragments/link/styles}"></div>-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    &lt;!&ndash;Start ~ Header&ndash;&gt;-->
+<!--    <div th:replace="~{fragments/navbar}"></div>-->
+<!--    &lt;!&ndash;End ~ Header&ndash;&gt;-->
+
+<!--    &lt;!&ndash;Start ~ Main&ndash;&gt;-->
+<!--    <main class="container">-->
+<!--        <div th:replace="~{fragments/home/categories(*{categories})}"></div>-->
+<!--        <div class="pt-5 float-start"-->
+<!--             th:each="article : ${articles}" th:object="${article}"-->
+<!--        >-->
+<!--            <div th:replace="~{fragments/cards:: card-readonly(*{user},*{thumbnail} ,*{uuid},*{title},*{categories})}"></div>-->
+<!--        </div>-->
+<!--    </main>-->
+<!--    <a href="/article/new">-->
+<!--        <button class="btn-add-article position-fixed fixed-bottom  rounded-5 float-end">-->
+<!--          <span>-->
+<!--            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path></svg> New Article-->
+<!--          </span>-->
+<!--        </button>-->
+<!--    </a>-->
+<!--  </body>-->
+<!--  <div th:replace="~{fragments/link/js}"></div>-->
+<!--  </html>-->

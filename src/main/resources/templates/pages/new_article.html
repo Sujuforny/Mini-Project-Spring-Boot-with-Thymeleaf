@@ -2,9 +2,9 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <div th:replace="~{fragments/link/styles}"></div>
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <div th:replace="~{fragments/link/styles}"></div>
+    <title>Title</title>
 </head>
 <body>
 <!--Start ~ Header-->
@@ -16,39 +16,51 @@
 <br>
 <br>
 <br>
-  <div class="container">
+<div class="container">
     <h1>Create new article</h1>
-    <form th:action="@{/article/new}"  method="post" th:object="${articles}" enctype="multipart/form-data">
-      <div class="row">
-        <div class="col-6">
-            <div class="form-check form-check-inline" th:each="use :${userList}" >
-                <input class="form-check-input" type="checkbox" th:id="${use.userName}" th:value="${use.userName}" th:field="*{user}"> <!-- Bind categories field to selected checkboxes -->
-                <label class="form-check-label" th:for="${use.userName}" th:text="${use.userName}"></label>
+    <form th:action="@{/article/new}"  method="post" th:object="${article}" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-6">
+<!--                <div class="mb-3">-->
+<!--                    <label class="form-label" for="author">Author</label>-->
+<!--                    <input th:field="*{user.userName}" class="form-control" id="author" type="text">-->
+<!--                    <div class="form-text text-danger" th:if="${#fields.hasErrors('user.userName')}" th:errors="*{user.userName}"></div>-->
+<!--                </div>-->
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input th:field="*{title}"  class="form-control" id="title" type="text">
+                    <div class="form-text text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+                </div>
+                <div>
+                    <p>Name</p>
+                    <div class="form-check form-check-inline" th:each="user :${userList}">
+                        <input class="form-check-input" type="radio" name="name" th:id="${user.userName}" th:value="${user.userName}" th:field="*{user.userName}">
+                        <label class="form-check-label" th:for="${user.userName}" th:text="${user.userName}"></label>
+                    </div>
+                </div>
+                <div>
+                    <p>Categories</p>
+                    <div class="form-check form-check-inline" th:each="cat : ${categoriesList}">
+                        <input class="form-check-input" type="checkbox" th:id="${cat.cat}" th:value="${cat.cat}" th:field="*{categoriesList}">
+                        <label class="form-check-label" th:for="${cat.cat}" th:text="${cat.cat}"></label>
+                    </div>
+<!--                    <div class="form-check form-check-inline" th:each="cat :${categoriess}" >-->
+<!--                        <input class="form-check-input" type="checkbox" th:id="${cat.cat}" th:value="${cat.cat}" th:field="*{categories}"> &lt;!&ndash; Bind categories field to selected checkboxes &ndash;&gt;-->
+<!--                        <label class="form-check-label" th:for="${cat.cat}" th:text="${cat.cat}"></label>-->
+<!--                    </div>-->
+                </div>
+                <button class="btn btn-primary" type="submit">Save</button>
             </div>
-          <div class="mb-3">
-            <label class="form-label" for="title">Title</label>
-            <input th:field="*{title}"  class="form-control" id="title" type="text">
-              <div class="form-text text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
-          </div>
-            <div>
-                <p>Categories</p>
-                <div class="form-check form-check-inline" th:each="cat :${categoriess}" >
-                    <input class="form-check-input" type="checkbox" th:id="${cat.cat}" th:value="${cat.cat}" th:field="*{categories}"> <!-- Bind categories field to selected checkboxes -->
-                    <label class="form-check-label" th:for="${cat.cat}" th:text="${cat.cat}"></label>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="thumbnailFile" class="form-label">Thumbnail</label>
+                    <input class="form-control" type="file" id="thumbnailFile" name="thumbnailFile">
+                    <img class="w-75 mt-2" id="placeholder" th:src="@{/resources/img/default/placeholder.jpg}" alt="your image" />
                 </div>
             </div>
-          <button class="btn btn-primary" type="submit">Save</button>
         </div>
-        <div class="col-6">
-          <div class="mb-3">
-            <label for="thumbnailFile" class="form-label">Thumbnail</label>
-            <input class="form-control" type="file" id="thumbnailFile" name="thumbnailFile">
-            <img class="w-75 mt-2" id="placeholder" th:src="@{/resources/img/default/placeholder.jpg}" alt="your image" />
-          </div>
-        </div>
-      </div>
     </form>
-  </div>
+</div>
 <!--end ~main-->
 <!--Start ~ Footer-->
 <div th:replace="~{fragments/footer}"></div>
@@ -56,3 +68,87 @@
 </body>
 <div th:replace="~{fragments/link/js}"></div>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en"-->
+<!--      xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <div th:replace="~{fragments/link/styles}"></div>-->
+<!--  <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash;Start ~ Header&ndash;&gt;-->
+<!--<div th:replace="~{fragments/navbar}"></div>-->
+<!--&lt;!&ndash;End ~ Header&ndash;&gt;-->
+
+<!--&lt;!&ndash;start ~main&ndash;&gt;-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--  <div class="container">-->
+<!--    <h1>Create new article</h1>-->
+<!--    <form th:action="@{/article/new}"  method="post" th:object="${articles}" enctype="multipart/form-data">-->
+<!--      <div class="row">-->
+<!--        <div class="col-6">-->
+<!--            <div class="form-check form-check-inline" th:each="use :${userList}" >-->
+<!--                <input class="form-check-input" type="checkbox" th:id="${use.userName}" th:value="${use.userName}" th:field="*{user}"> &lt;!&ndash; Bind categories field to selected checkboxes &ndash;&gt;-->
+<!--                <label class="form-check-label" th:for="${use.userName}" th:text="${use.userName}"></label>-->
+<!--            </div>-->
+<!--          <div class="mb-3">-->
+<!--            <label class="form-label" for="title">Title</label>-->
+<!--            <input th:field="*{title}"  class="form-control" id="title" type="text">-->
+<!--              <div class="form-text text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>-->
+<!--          </div>-->
+<!--            <div>-->
+<!--                <p>Categories</p>-->
+<!--                <div class="form-check form-check-inline" th:each="cat :${categoriess}" >-->
+<!--                    <input class="form-check-input" type="checkbox" th:id="${cat.cat}" th:value="${cat.cat}" th:field="*{categories}"> &lt;!&ndash; Bind categories field to selected checkboxes &ndash;&gt;-->
+<!--                    <label class="form-check-label" th:for="${cat.cat}" th:text="${cat.cat}"></label>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--          <button class="btn btn-primary" type="submit">Save</button>-->
+<!--        </div>-->
+<!--        <div class="col-6">-->
+<!--          <div class="mb-3">-->
+<!--            <label for="thumbnailFile" class="form-label">Thumbnail</label>-->
+<!--            <input class="form-control" type="file" id="thumbnailFile" name="thumbnailFile">-->
+<!--            <img class="w-75 mt-2" id="placeholder" th:src="@{/resources/img/default/placeholder.jpg}" alt="your image" />-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--&lt;!&ndash;end ~main&ndash;&gt;-->
+<!--&lt;!&ndash;Start ~ Footer&ndash;&gt;-->
+<!--<div th:replace="~{fragments/footer}"></div>-->
+<!--&lt;!&ndash;End ~ Footer&ndash;&gt;-->
+<!--</body>-->
+<!--<div th:replace="~{fragments/link/js}"></div>-->
+<!--</html>-->

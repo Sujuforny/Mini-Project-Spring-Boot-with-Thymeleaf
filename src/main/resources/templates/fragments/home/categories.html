@@ -1,5 +1,6 @@
-<div  class="d-flex justify-content-around categories"
-      th:fragment="btn-categories(categories)"
-      xmlns:th="http://www.thymeleaf.org">
-    <button type="button" class="btn btn-secondary btn-rounded" th:each="cat : ${categories}" th:text="${cat.cat}"></button>
+<div class="d-flex justify-content-around categories"
+     th:fragment="btn-categories(categoriesList)"
+     xmlns:th="http://www.thymeleaf.org"
+>
+    <button type="button" class="btn btn-secondary btn-rounded" th:each="cat : ${categoriesList}" th:text="${cat.cat}"></button>
 </div>

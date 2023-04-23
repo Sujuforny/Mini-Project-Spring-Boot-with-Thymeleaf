@@ -12,7 +12,12 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     private final StaticRepository staticRepository;
     @Override
-    public List<User> findAll() {
+    public User findAll() {
+        return staticRepository.getUser();
+    }
+
+    @Override
+    public List<User> findAlls() {
         return staticRepository.getUserList();
     }
 }
