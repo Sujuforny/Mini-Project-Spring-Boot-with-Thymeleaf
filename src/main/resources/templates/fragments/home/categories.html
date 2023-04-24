@@ -2,5 +2,5 @@
      th:fragment="btn-categories(categoriesList)"
      xmlns:th="http://www.thymeleaf.org"
 >
-    <button type="button" class="btn btn-secondary btn-rounded" th:each="cat : ${categoriesList}" th:text="${cat.cat}"></button>
+    <a  type="button" class="btn btn-secondary btn-rounded" th:each="cat : ${categoriesList}" th:text="${cat.cat}" th:href="@{/categories/list(cat=${cat.cat})}"></a>
 </div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <div th:replace="~{fragments/link/styles}"></div>
+  <title>Title</title>
+</head>
+<body>
+<!--Start ~ Header-->
+<div th:replace="~{fragments/navbar}"></div>
+<!--End ~ Header-->
+<!--start ~main-->
+<main class="container">
+   <div th:replace="~{fragments/home/categories:: btn-categories(*{categoriesList})}"></div>
+   <div class="pt-5 float-start"
+       th:each="article : ${articles}" th:object="${article}"
+  >
+    <div th:replace="~{fragments/cards:: card-readonly(*{user},*{thumbnail},*{uuid},*{title},*{categoriesList})}"></div>
+  </div>
+</main>
+<!--end ~main-->
+
+</body>
+<div th:replace="~{fragments/link/js}"></div>
+</html>

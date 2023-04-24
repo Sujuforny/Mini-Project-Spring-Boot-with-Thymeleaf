@@ -30,6 +30,9 @@ public class StaticRepository {
     private User user;
     private List<User> userList;
     private List<Categories> categoriesList;
+    private List<Categories> categoriesList1;
+    private List<Categories> categoriesList2;
+    private List<Categories> categoriesList3;
     @PostConstruct
     void initArticle(){
         user = new User("fufy","@{/resources/img/profile/1.jpg}","male","Select fields components are used for collecting user provided information from a list of options.","fufy@gmail.com","RUPP Auditorium, មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ","@{/resources/img/profile/1.jpg}");
@@ -43,7 +46,7 @@ public class StaticRepository {
         userList.add(new User("kiki","3.jpg","male"," It is generally characterized by affection, care, compassion, attachment, and deep emotional connection.","fufy@gmail.com","HWR6+WF2, 395 ផ្លូវលេខ ៩០៧, ភ្នំពេញ 12000","@{/resources/img/profile/1.jpg}"));
         userList.add(new User("jonhson","4.jpg","male","Love can manifest in various forms, such as romantic love, familial love, platonic love, and self-love","fufy@gmail.com","មហាវិថី មិត្តភាព ភ្នំពេញ ហាណូយ (១០១៩), ភ្នំពេញ","@{/resources/img/profile/1.jpg}"));
         userList.add(new User("lala128","5.jpg","male","Romantic love typically involves feelings of passion, intimacy, and commitment towards a romantic partner","fufy@gmail.com","142 Street 58AK, Phnom Penh Hanoi Friendship Blvd (1019), Phnom Penh","@{/resources/img/profile/1.jpg}"));
-
+        //all categories
         categoriesList = new ArrayList<>();
         categoriesList.add(new Categories("Gamming"));
         categoriesList.add(new Categories("Stories"));
@@ -51,10 +54,23 @@ public class StaticRepository {
         categoriesList.add(new Categories("Programming"));
         categoriesList.add(new Categories("Science"));
         categoriesList.add(new Categories("Other"));
+        //for user
+        categoriesList1 = new ArrayList<>();
+        categoriesList2 = new ArrayList<>();
+        categoriesList3 = new ArrayList<>();
+        categoriesList1.add(new Categories("Gamming"));
+        categoriesList1.add(new Categories("Stories"));
+
+        categoriesList3.add(new Categories("Student"));
+        categoriesList3.add(new Categories("Gamming"));
+        categoriesList2.add(new Categories("Stories"));
+        categoriesList1.add(new Categories("Programming"));
+        categoriesList2.add(new Categories("Science"));
+        categoriesList2.add(new Categories("Other"));
         articles= new ArrayList<>(){{
-            add(new Article(user,"1.jpg",UUID.randomUUID(),"hese breakthroughs are propelling us towards a new era of innovation and discovery.",categoriesList));
-            add(new Article(user,"2.jpg",UUID.randomUUID(),"Get ready to embark on a journey of technological marvels",categoriesList));
-            add(new Article(user,"3.jpg",UUID.randomUUID(),"Cutting-Edge Breakthroughs in Science and TechnologyT",categoriesList));
+            add(new Article(user,"/resources/img/post/1.jpg",UUID.randomUUID(),"hese breakthroughs are propelling us towards a new era of innovation and discovery.",categoriesList1));
+            add(new Article(user,"/resources/img/post/2.jpg",UUID.randomUUID(),"Get ready to embark on a journey of technological marvels",categoriesList2));
+            add(new Article(user,"/resources/img/post/3.jpg",UUID.randomUUID(),"Cutting-Edge Breakthroughs in Science and TechnologyT",categoriesList3));
         }};
     }
 //    @PostConstruct

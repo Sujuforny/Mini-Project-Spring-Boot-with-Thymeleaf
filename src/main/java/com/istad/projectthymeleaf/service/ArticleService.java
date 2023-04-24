@@ -9,5 +9,6 @@ public interface ArticleService {
     //Find all articles
     //1.Have POJO Class
     List <Article> findAll();
+    List <Article> getAll(String cat);
     boolean save(Article article, MultipartFile file);
 }
