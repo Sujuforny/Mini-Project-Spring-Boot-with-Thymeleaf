@@ -21,11 +21,6 @@
     <form th:action="@{/article/new}"  method="post" th:object="${article}" enctype="multipart/form-data">
         <div class="row">
             <div class="col-6">
-<!--                <div class="mb-3">-->
-<!--                    <label class="form-label" for="author">Author</label>-->
-<!--                    <input th:field="*{user.userName}" class="form-control" id="author" type="text">-->
-<!--                    <div class="form-text text-danger" th:if="${#fields.hasErrors('user.userName')}" th:errors="*{user.userName}"></div>-->
-<!--                </div>-->
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
                     <input th:field="*{title}"  class="form-control" id="title" type="text">
@@ -48,7 +43,7 @@
                     <div class="form-text text-danger" th:if="${#fields.hasErrors('categoriesList')}" th:errors="*{categoriesList}"></div>
 
                 </div>
-                <button class="btn btn-primary" type="submit">Save</button>
+                <button  class="btn btn-primary" type="submit">Save</button>
             </div>
             <div class="col-6">
                 <div class="mb-3">

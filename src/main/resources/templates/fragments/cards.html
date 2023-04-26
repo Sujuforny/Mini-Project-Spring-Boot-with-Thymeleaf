@@ -7,7 +7,7 @@
         <div class="card-body">
             <div >
                 <div  class="pe-5">
-                    <img th:src="@{/resources/img/profile/1.jpg}" class="rounded-circle profile float-start" alt="">
+                    <img th:src="@{{profileImg}(profileImg=${user.profileImg})}" class="rounded-circle profile float-start" alt="">
                 </div>
                 <div>
                     <span class="card-title pt-5" th:text="${user.userName}"></span>
@@ -27,20 +27,20 @@
         </div>
     </div>
 </div>
-<div class="card"
+<div class="card" style=" border: 1px black solid !important; width:550px;margin-bottom: 10px "
      xmlns:th="http://www.thymeleaf.org"
      th:fragment="card-user(userList)"
      th:each="user : ${userList}">
     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-        <img th:src="@{http://localhost:8080/resources/img/profile/{thumbnail}(thumbnail=${user.profileImg})}" class="img-fluid"/>
-        <a href="/profile">
+        <img th:src="@{http://localhost:8080{thumbnail}(thumbnail=${user.profileImg})}" class="img-fluid"/>
+        <a th:href="@{/profile/user(userName=${user.userName})}" >
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
         </a>
     </div>
     <div class="card-body">
         <h5 class="card-title" th:text="${user.userName}"> </h5>
         <p class="card-text" th:text="${user.description}"></p>
-        <a th:href="@{/profile/user(userName=${user.userName})}" lass="btn btn-primary">View Profile</a>
+        <a th:href="@{/profile/user(userName=${user.userName})}" class="btn btn-primary">View Profile</a>
     </div>
 </div>
 

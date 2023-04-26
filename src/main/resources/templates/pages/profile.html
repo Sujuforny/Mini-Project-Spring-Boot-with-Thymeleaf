@@ -12,7 +12,7 @@
     <!--End ~ Header-->
 
     <!--start ~main-->
-    <div th:replace="~{fragments/profile/profile_detail :: user-profile(*{user})}"></div>
+    <div th:replace="~{fragments/profile/profile_detail :: user-profile(*{user},*{userCover})}"></div>
     <!--end ~main-->
     <!--Start ~ Footer-->
     <div th:replace="~{fragments/footer}"></div>

@@ -35,8 +35,12 @@ public class HomeController {
         model.addAttribute("articles",articles);
         model.addAttribute("categoriesList",categoriesList);
         model.addAttribute("user",user);
+        System.out.println(articles);
         return "pages/index";
     }
+
+
+    //--------Create new post--------
     @GetMapping("/article/new")
     String newArticle( Model model, Article article){
         List<Categories> categoriesList = categoriesService.findAll();
@@ -48,7 +52,7 @@ public class HomeController {
     }
     @PostMapping("/article/new")
     String doSavePost(@ModelAttribute @Valid Article article, BindingResult result ,
-                      @RequestParam("thumbnailFile") MultipartFile file,
+                    @Valid  @RequestParam("thumbnailFile") MultipartFile file,
                       Model model){
         List<Categories> categoriesList = categoriesService.findAll();
         List<User> userList = userService.findAlls();
@@ -56,10 +60,8 @@ public class HomeController {
         model.addAttribute("userList", userList);
         if (result.hasErrors()){
             model.addAttribute("article",article);
-            System.out.println(article);
             return "pages/new_article";
         }
-        System.out.println("true...!");
         for ( User user: userList) {
             if(article.getUser().getUserName().equals(user.getUserName())) {
                 article.setUser(user);

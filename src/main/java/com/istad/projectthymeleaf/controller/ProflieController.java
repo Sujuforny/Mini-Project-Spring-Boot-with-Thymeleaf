@@ -30,7 +30,9 @@ public class ProflieController {
         List<User> userList =staticRepository.getUserList();
         List<User> findUser = new ArrayList<>();
         User user= userService.profileUser(userName);
+        String userCover =user.getCover();
         model.addAttribute("user" ,user);
+        model.addAttribute("userCover",userCover);
         return "pages/profile";
     }
 

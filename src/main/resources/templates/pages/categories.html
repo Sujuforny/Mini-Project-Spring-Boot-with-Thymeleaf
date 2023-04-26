@@ -13,6 +13,8 @@
 <!--start ~main-->
 <main class="container">
    <div th:replace="~{fragments/home/categories:: btn-categories(*{categoriesList})}"></div>
+    <h1 th:each="article :${articles}"></h1>
+    <h1 th:text="'All-Posts: ' + ${#lists.size(articles)}"></h1>
    <div class="pt-5 float-start"
        th:each="article : ${articles}" th:object="${article}"
   >
